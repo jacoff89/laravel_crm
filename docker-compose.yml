@@ -27,6 +27,6 @@ services:
     volumes:
       - ${DATABASES_PATH}:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 111
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${MYSQL_PORT}:3306"
