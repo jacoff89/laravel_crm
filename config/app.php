@@ -95,7 +95,7 @@ return [
     |
      */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'ru'),
 
     /*
     |--------------------------------------------------------------------------
@@ -113,6 +113,7 @@ return [
         'es'    => 'Español',
         'fa'    => 'Persian',
         'pt_BR' => 'Portuguese',
+        'ru'    => 'Русский',
         'tr'    => 'Türkçe',
         'vi'    => 'Vietnamese',
     ],
@@ -141,7 +142,7 @@ return [
     |
      */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'ru_RU',
 
     /*
     |--------------------------------------------------------------------------

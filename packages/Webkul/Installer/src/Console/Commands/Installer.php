@@ -40,10 +40,11 @@ class Installer extends Command
     protected $locales = [
         'ar'    => 'Arabic',
         'en'    => 'English',
-        'tr'    => 'Turkish',
         'es'    => 'Spanish',
         'fa'    => 'Persian',
         'pt_BR' => 'Portuguese',
+        'ru'    => 'Русский',
+        'tr'    => 'Turkish',
     ];
 
     /**
