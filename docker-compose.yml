@@ -14,7 +14,12 @@ services:
 
   crm-php-fpm:
     container_name: crm-php-fpm
-    build: .docker/php-fpm
+    build:
+      context: .docker/php-fpm
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    user: "${UID}:${GID}"
     working_dir: /app
     volumes:
       - .:/app
@@ -23,10 +28,18 @@ services:
 
   crm-db:
     container_name: crm-db
-    image: mysql:8.4
+    build:
+      context: .docker/db
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    user: "${UID}:${GID}"
     volumes:
       - ${DATABASES_PATH}:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${MYSQL_PORT}:3306"
