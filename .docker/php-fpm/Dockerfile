@@ -16,6 +16,20 @@ RUN cd /tmp/ \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
+RUN apt-get update && apt-get install -y msmtp-mta
+RUN echo 'account default' > /etc/msmtprc \
+ && echo 'host postfix-opendkim' >> /etc/msmtprc \
+ && echo 'port 25' >> /etc/msmtprc \
+ && echo 'auto_from on' >> /etc/msmtprc \
+ && echo 'maildomain yakov89.ru' >> /etc/msmtprc \
+ && echo 'tls off' >> /etc/msmtprc
+
+RUN echo 'sendmail_path = /usr/bin/msmtp -t' >> /etc/php/8.4/fpm/php.ini
+RUN echo 'sendmail_path = /usr/bin/msmtp -t' >> /etc/php/8.4/cli/php.ini
+
+#RUN apt-get update
+#RUN apt-get install -y mc iproute2 dnsutils inetutils-telnet iputils-ping nano \
+#    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Создаём pid-файл и каталог сокета, даем права
 RUN mkdir -p /run/php \

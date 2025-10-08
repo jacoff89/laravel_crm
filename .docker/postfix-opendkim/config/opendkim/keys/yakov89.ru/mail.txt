@@ -1,0 +1,3 @@
+mail._domainkey	IN	TXT	( "v=DKIM1; h=sha256; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0DaIosVcqgEDO7J5WbBtR06FfPxSZ+2lEvkHKkOLYvHeBlXdlypOEqIcf7AoruEjHS3ACsjdzvB/+zi7vgNlhxbsCBb4df86+ajZA1BxX7atLZM9PZEJUk/zqEtbOIxgoZuds5buBN0J8xPzkEvavYpXkKFarIREWfUNBM9KFcyJTGG3BnriCIdL7Ppc2ZKshk13O/wH+BdPde"
+	  "FTYKnDy+tk2bg/b5pbmQdlKKS4S71Ce0dIzlH1WbMkeTNJrs0wKsJHb+lddQl8vm8urBYtj7CTPq6zA8QR9fqhsLBQmSEajfngdA7820IBrRGDJ7xu4qij9K3uV5WHWUMhBHa2pwIDAQAB" )  ; ----- DKIM key mail for yakov89.ru
