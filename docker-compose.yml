@@ -23,8 +23,6 @@ services:
         GID: ${GID}
     volumes:
       - .:/var/www/html
-    environment:
-      - NGINX_PORT=${NGINX_PORT}
     depends_on:
       - db
       - postfix-opendkim
