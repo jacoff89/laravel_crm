@@ -40,11 +40,17 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - mailnet
+    restart: unless-stopped
+
+  port-proxy:
+    image: alpine/socat
+    command: TCP-LISTEN:3306,fork TCP:db:3306
     ports:
       - "${MYSQL_PORT}:3306"
     networks:
       - mailnet
-    restart: unless-stopped
 
   postfix-opendkim:
     container_name: crm-postfix-opendkim
@@ -61,4 +67,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.19.0.0/16
+        - subnet: 172.10.0.0/16
